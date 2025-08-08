@@ -14,6 +14,7 @@ class Usuarios(db.Model):
     sobrenome = db.Column(db.String(100), nullable=False)
     cargo = db.Column(db.String(100), nullable=False)
     horario_chegada = db.Column(db.String(100), nullable=False)
+    cpf = db.Column(db.String(20), nullable=False)
     
 @app.route('/')
 def home():
@@ -26,8 +27,9 @@ def cadastro():
         sobrenome = request.form['lastname']
         cargo = request.form['oqvce']
         horario_chegada = request.form['horario']
+        cpf = request.form['CPF']
         
-        novo_usuario = Usuarios(nome=nome, sobrenome=sobrenome, cargo=cargo, horario_chegada=horario_chegada)
+        novo_usuario = Usuarios(nome=nome, sobrenome=sobrenome, cargo=cargo, horario_chegada=horario_chegada, cpf=cpf)
         db.session.add(novo_usuario)
         db.session.commit()
 
