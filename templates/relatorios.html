@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAÇA SUA ESCOLHA, MERO MORTAL</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/drinking-code/HK-Grotesk-Web/font.min.css');
+
+        body {
+            font-family: 'HK Grotesk', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+        }
+        .maintitle {
+            font-weight: bold;
+            font-size: 3em;
+            margin-top: 5%;
+        }
+        #maincontainer_buttons {
+            font-weight: bold;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .button {
+            display: inline-block;
+            padding: 20px 50px;
+            font-size: 1.5em;
+            margin: 10% 10% 10% 10%;
+            background-color: #202022;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: rgb(63, 38, 38)
+        }
+        #maincontainer_text {
+            margin: 0px;
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        #Creditos {
+            display: block;
+            margin: 0px;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        p{
+            margin: 0px;
+            font-size: 1.2em;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="maintitle">Pronto para baixar seu relatório?</div>
+    <div id="maincontainer_buttons">
+        <div class="button" id="relatorio" onclick="window.open('/gerar_pdf')">Relatórios</div>
+    </div>
+
+    <div id="maincontainer_text">
+        <p>Segunda Amostra Técnica</p>
+        <p>Colégio LIndaura Ribeiro Lucas</p>
+        <span id="Creditos">Equipe de Desenvolvimento: Isaac & Gabriel | 3°B Desenvolvimento</span>
+</body>
+</html>
