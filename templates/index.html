@@ -68,6 +68,8 @@
               <option value="aluno">Aluno</option>
               <option value="paimae">Pai/Mãe</option>
               <option value="responsavel">Responsável</option>
+              <option value="professor">Professor</option>
+
                 <option value="visitante">Visitante</option>
             </select>
           </div>
@@ -83,11 +85,27 @@
               required
             />
           </div>
+
+        </div>
+        <div class="formbold-input-flex">
+          <div>
+            <label for="CPF" class="formbold-form-label"> CPF  </label>
+            <input
+              type="text"
+              name="CPF"
+              id="horario"
+              class="formbold-form-input"
+              maxlength="14"
+              oninput="formatarCPF(this)"
+              required
+            />
+          </div>
         </div>
   
         <button class="formbold-btn">Entre Agora!</button>
         
       </form>
+      <p id="lembrete">LEMBRE-SE DE ENTREGAR/PEGAR A PULSEIRA!</p>
       {% if ultimousuario %}
         <p>Ultimo usuário: {{ ultimousuario }}</p>
       {% endif %}
@@ -115,6 +133,9 @@
       font-family: 'Inter', sans-serif;
     }
 
+    #lembrete{
+      margin-top: 20px;
+    }
     #watermark {
         position: fixed;
         bottom: 0;
@@ -280,4 +301,14 @@
       box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
     }
   </style>
+
+  <script>
+    function formatarCPF(campo) {
+  let cpf = campo.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+  cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2'); // Adiciona o primeiro ponto
+  cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2'); // Adiciona o segundo ponto
+  cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2'); // Adiciona o traço
+  campo.value = cpf; // Atualiza o valor do campo
+}
+  </script>
   <title>SEGUNDA AMOSTRA DE CURSOS | REGISTRO DE ENTRADA</title>
