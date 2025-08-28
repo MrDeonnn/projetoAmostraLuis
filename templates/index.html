@@ -64,7 +64,7 @@
         <div class="formbold-input-flex">
           <div>
             <label for="oqvce" class="formbold-form-label"> O que você é?  </label>
-            <select id="oqvce" name="oqvce" class="formbold-form-input" required>
+            <select id="oqvce" name="oqvce" class="formbold-form-input" oninput="alunoMenorIdade()" required>
               <option value="aluno">Aluno</option>
               <option value="paimae">Pai/Mãe</option>
               <option value="responsavel">Responsável</option>
@@ -89,11 +89,11 @@
         </div>
         <div class="formbold-input-flex">
           <div>
-            <label for="CPF" class="formbold-form-label"> CPF  </label>
+            <label for="CPF" class="formbold-form-label" id="cpflabel"> CPF do Pai/Responsável </label>
             <input
               type="text"
               name="CPF"
-              id="horario"
+              id="cpf"
               class="formbold-form-input"
               maxlength="14"
               oninput="formatarCPF(this)"
@@ -106,6 +106,8 @@
         
       </form>
       <p id="lembrete">LEMBRE-SE DE ENTREGAR/PEGAR A PULSEIRA!</p>
+      <p id="lembrete2">CASO O ALUNO SEJA MAIOR DE IDADE, COLOQUE O PRÓPRIO CPF!</p>
+
       {% if ultimousuario %}
         <p>Ultimo usuário: {{ ultimousuario }}</p>
       {% endif %}
@@ -310,5 +312,20 @@
   cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2'); // Adiciona o traço
   campo.value = cpf; // Atualiza o valor do campo
 }
+
+    function alunoMenorIdade() {
+      const oqvce = document.getElementById('oqvce');
+      const cpf = document.getElementById('cpflabel');
+      const lembrete = document.getElementById('lembrete2');
+
+
+      if (oqvce.value === 'aluno') {
+        cpf.innerText = 'CPF do Pai/Responsável';
+        lembrete.innerText = 'CASO O ALUNO SEJA MAIOR DE IDADE, COLOQUE O PRÓPRIO CPF!';	
+      } else {
+        cpf.innerText = 'CPF';
+        lembrete.innerText = '';
+      }
+    }
   </script>
   <title>SEGUNDA AMOSTRA DE CURSOS | REGISTRO DE ENTRADA</title>
